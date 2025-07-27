@@ -1,14 +1,10 @@
 // Ficheiro: pages/index.tsx
-import Navbar from '../components/Navbar'; // <-- ADICIONE ESTA LINHA
+// VERSÃO FINAL CORRIGIDA E LIMPA
+
+import Navbar from '../components/Navbar';
 import { FaAws, FaDocker, FaJenkins, FaLinux, FaWindows } from 'react-icons/fa';
 import { SiMicrosoftazure, SiKubernetes, SiTerraform, SiAnsible, SiGrafana, SiPrometheus, SiGitlab, SiZabbix } from 'react-icons/si';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
-
-
-
-
-// Ficheiro: pages/index.tsx
-// Versão atualizada com os links do GitHub e do próprio portfólio.
 
 // --- DADOS DO PORTFÓLIO ---
 const experiences = [
@@ -19,16 +15,16 @@ const experiences = [
     description: "Implantação de automações com Ansible e pipelines CI/CD. Monitoramento com Zabbix, Grafana, Kibana, Dynatrace."
   },
   {
-    company: "Kalendae | Banco Bradesco",
-    role: "Middleware - DevOps Engineer - SRE",
-    period: "2024 - 2024",
-    description: "Definição de MTTR, MTBF, MTTA. Criação de dashboards SRE e FinOps. Cultura de confiabilidade com SLI, SLO, Error Budget."
-  {
     company: "Meta | Tokio Marine",
     role: "DevOps Engineer | SRE",
     period: "2023 – 2024",
     description: "Redução de 70% no tempo médio de detecção de problemas com nova stack de monitoramento. Implantação de esteiras CI/CD com +90% de sucesso. Gestão de SLIs, SLOs e Error Budgets agressivos."
-    
+  },
+  {
+    company: "Kalendae | Banco Bradesco",
+    role: "Middleware - DevOps Engineer - SRE",
+    period: "2023",
+    description: "Definição de MTTR, MTBF, MTTA. Criação de dashboards SRE e FinOps. Cultura de confiabilidade com SLI, SLO, Error Budget."
   },
   {
     company: "Financeira Alfa",
@@ -66,17 +62,8 @@ const certifications = [
 ];
 
 
-// --- COMPONENTE DO PORTFÓLIO ---
+// --- COMPONENTE PRINCIPAL DO PORTFÓLIO ---
 export default function Portfolio() {
-  useTypewriter
-  return (
-    <div>
-      {/* --- SEÇÃO INÍCIO --- */}
-      <section id="inicio">
-        <h1>João Renato Alves</h1>
-        // ... (depois das importações)
-
-export default function Portfolio() { // A função principal
   const [text] = useTypewriter({
     words: ['SRE', 'DevOps Engineer', 'Cloud Specialist', 'Automation Expert'],
     loop: true,
@@ -100,15 +87,7 @@ export default function Portfolio() { // A função principal
         </div>
       </section>
 
-      {/* ... O resto do seu código continua aqui ... */}
-
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
-          <a href="https://www.linkedin.com/in/joaorenatoalves" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/jraalves" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </section>
-
-            {/* --- SEÇÃO SOBRE --- */}
+      {/* --- SEÇÃO SOBRE --- */}
       <section id="sobre">
         <h2>Sobre Mim</h2>
         <div style={{ display: 'flex', alignItems: 'center', gap: '50px' }}>
@@ -120,15 +99,14 @@ export default function Portfolio() { // A função principal
           <div>
             <p>
               Engenheiro SRE/DevOps com experiência em arquitetura de soluções, automação de infraestrutura e observabilidade.
-              Possuo conhecimento avançado em distribuições Linux (RedHat, Ubuntu, CentOS), Docker, Kubernetes e ferramentas de CI/CD como Jenkins e GitLab CI.
+              Possuo conhecimento em distribuições Linux (RedHat, Ubuntu, CentOS ), Docker, Kubernetes e ferramentas de CI/CD como Jenkins e GitLab CI.
               Sou proativo na resolução de problemas e colaborativo, com excelente comunicação para interagir com stakeholders técnicos e não técnicos.
             </p>
           </div>
         </div>
       </section>
 
-
-            {/* --- SEÇÃO HABILIDADES --- */}
+      {/* --- SEÇÃO HABILIDADES --- */}
       <section id="habilidades">
         <h2>Habilidades Técnicas</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', fontSize: '4rem' }}>
@@ -147,7 +125,6 @@ export default function Portfolio() { // A função principal
           <div style={{ textAlign: 'center' }}><FaWindows title="Windows" /></div>
         </div>
       </section>
-
 
       {/* --- SEÇÃO EXPERIÊNCIA --- */}
       <section id="experiencia">
@@ -177,8 +154,8 @@ export default function Portfolio() { // A função principal
       <section id="contato">
         <h2>Contato</h2>
         <p>Sinta-se à vontade para entrar em contato.</p>
-        <p>Email: jotatoxxi@gmail.com</p>
-        <p>Telefone: (11) 97599-8685</p>
+        <p>Email: joao_renato3@hotmail.com | jotatoxxi@gmail.com</p>
+        
       </section>
 
       {/* --- RODAPÉ --- */}
