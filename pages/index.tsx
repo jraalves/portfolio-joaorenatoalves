@@ -1,3 +1,6 @@
+import Navbar from '../components/Navbar';
+
+
 // Ficheiro: pages/index.tsx
 // Versão atualizada com os links do GitHub e do próprio portfólio.
 
