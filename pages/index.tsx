@@ -1,4 +1,10 @@
-import Navbar from '../components/Navbar';
+// Ficheiro: pages/index.tsx
+import Navbar from '../components/Navbar'; // <-- ADICIONE ESTA LINHA
+import { FaAws, FaDocker, FaJenkins, FaLinux, FaWindows } from 'react-icons/fa';
+import { SiMicrosoftazure, SiKubernetes, SiTerraform, SiAnsible, SiGrafana, SiPrometheus, SiGitlab, SiZabbix } from 'react-icons/si';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
+
+
 
 
 // Ficheiro: pages/index.tsx
@@ -13,16 +19,16 @@ const experiences = [
     description: "Implantação de automações com Ansible e pipelines CI/CD. Monitoramento com Zabbix, Grafana, Kibana, Dynatrace."
   },
   {
+    company: "Kalendae | Banco Bradesco",
+    role: "Middleware - DevOps Engineer - SRE",
+    period: "2024 - 2024",
+    description: "Definição de MTTR, MTBF, MTTA. Criação de dashboards SRE e FinOps. Cultura de confiabilidade com SLI, SLO, Error Budget."
+  {
     company: "Meta | Tokio Marine",
     role: "DevOps Engineer | SRE",
     period: "2023 – 2024",
     description: "Redução de 70% no tempo médio de detecção de problemas com nova stack de monitoramento. Implantação de esteiras CI/CD com +90% de sucesso. Gestão de SLIs, SLOs e Error Budgets agressivos."
-  },
-  {
-    company: "Kalendae | Banco Bradesco",
-    role: "Middleware - DevOps Engineer - SRE",
-    period: "2023",
-    description: "Definição de MTTR, MTBF, MTTA. Criação de dashboards SRE e FinOps. Cultura de confiabilidade com SLI, SLO, Error Budget."
+    
   },
   {
     company: "Financeira Alfa",
@@ -62,42 +68,86 @@ const certifications = [
 
 // --- COMPONENTE DO PORTFÓLIO ---
 export default function Portfolio() {
+  useTypewriter
   return (
     <div>
       {/* --- SEÇÃO INÍCIO --- */}
       <section id="inicio">
         <h1>João Renato Alves</h1>
-        <h2>SRE | DevOps Engineer</h2>
+        // ... (depois das importações)
+
+export default function Portfolio() { // A função principal
+  const [text] = useTypewriter({
+    words: ['SRE', 'DevOps Engineer', 'Cloud Specialist', 'Automation Expert'],
+    loop: true,
+    delaySpeed: 2000,
+  });
+
+  return (
+    <div>
+      <Navbar />
+
+      {/* --- SEÇÃO INÍCIO --- */}
+      <section id="inicio">
+        <h1>João Renato Alves</h1>
+        <h2 style={{ minHeight: '60px' }}>
+          <span>{text}</span>
+          <Cursor cursorColor='#0070f3' />
+        </h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
           <a href="https://www.linkedin.com/in/joaorenatoalves" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/jraalves" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </section>
 
-      {/* --- SEÇÃO SOBRE --- */}
-      <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>
-          Engenheiro SRE/DevOps com sólida experiência em arquitetura de soluções, automação de infraestrutura e observabilidade.
-          Possuo conhecimento avançado em distribuições Linux (RedHat, Ubuntu, CentOS ), Docker, Kubernetes e ferramentas de CI/CD como Jenkins e GitLab CI.
-          Sou proativo na resolução de problemas e colaborativo, com excelente comunicação para interagir com stakeholders técnicos e não técnicos.
-        </p>
+      {/* ... O resto do seu código continua aqui ... */}
+
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
+          <a href="https://www.linkedin.com/in/joaorenatoalves" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/jraalves" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </section>
 
-      {/* --- SEÇÃO HABILIDADES --- */}
+            {/* --- SEÇÃO SOBRE --- */}
+      <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '50px' }}>
+          <img 
+            src="/profile.jpg" 
+            alt="Foto de João Renato Alves" 
+            style={{ width: '250px', height: '250px', borderRadius: '50%', objectFit: 'cover' }}
+          />
+          <div>
+            <p>
+              Engenheiro SRE/DevOps com experiência em arquitetura de soluções, automação de infraestrutura e observabilidade.
+              Possuo conhecimento avançado em distribuições Linux (RedHat, Ubuntu, CentOS), Docker, Kubernetes e ferramentas de CI/CD como Jenkins e GitLab CI.
+              Sou proativo na resolução de problemas e colaborativo, com excelente comunicação para interagir com stakeholders técnicos e não técnicos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+            {/* --- SEÇÃO HABILIDADES --- */}
       <section id="habilidades">
         <h2>Habilidades Técnicas</h2>
-        <ul>
-          <li>Cloud: AWS, Azure, OCI</li>
-          <li>Contêineres: Docker, Kubernetes</li>
-          <li>CI/CD: Jenkins, GitLab CI</li>
-          <li>Infra as Code: Terraform, Ansible</li>
-          <li>Observabilidade: Grafana, Dynatrace, Prometheus, Zabbix, Splunk, Elastic Stack</li>
-          <li>Servidores: IIS, Tomcat, Apache, Wildfly</li>
-          <li>Sistemas Operacionais: Linux, Windows Server</li>
-          <li>Scripting: Shell Script</li>
-        </ul>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', fontSize: '4rem' }}>
+          <div style={{ textAlign: 'center' }}><FaAws title="AWS" /></div>
+          <div style={{ textAlign: 'center' }}><SiMicrosoftazure title="Azure" /></div>
+          <div style={{ textAlign: 'center' }}><FaDocker title="Docker" /></div>
+          <div style={{ textAlign: 'center' }}><SiKubernetes title="Kubernetes" /></div>
+          <div style={{ textAlign: 'center' }}><FaJenkins title="Jenkins" /></div>
+          <div style={{ textAlign: 'center' }}><SiGitlab title="GitLab CI" /></div>
+          <div style={{ textAlign: 'center' }}><SiTerraform title="Terraform" /></div>
+          <div style={{ textAlign: 'center' }}><SiAnsible title="Ansible" /></div>
+          <div style={{ textAlign: 'center' }}><SiGrafana title="Grafana" /></div>
+          <div style={{ textAlign: 'center' }}><SiPrometheus title="Prometheus" /></div>
+          <div style={{ textAlign: 'center' }}><SiZabbix title="Zabbix" /></div>
+          <div style={{ textAlign: 'center' }}><FaLinux title="Linux" /></div>
+          <div style={{ textAlign: 'center' }}><FaWindows title="Windows" /></div>
+        </div>
       </section>
+
 
       {/* --- SEÇÃO EXPERIÊNCIA --- */}
       <section id="experiencia">
