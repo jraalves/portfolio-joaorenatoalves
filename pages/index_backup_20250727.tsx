@@ -1,9 +1,13 @@
 // Ficheiro: pages/index.tsx
-// VERSÃO DE TESTE - SIMPLIFICADA PARA ENCONTRAR O ERRO
+// VERSÃO FINAL CORRIGIDA E LIMPA
+
+import Navbar from '../components/Navbar';
+import { FaAws, FaDocker, FaJenkins, FaLinux, FaWindows } from 'react-icons/fa';
+import { SiMicrosoftazure, SiKubernetes, SiTerraform, SiAnsible, SiGrafana, SiPrometheus, SiGitlab, SiZabbix } from 'react-icons/si';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 // --- DADOS DO PORTFÓLIO ---
 const experiences = [
-  // ... (a sua lista de experiências continua aqui, não precisa de a apagar)
   {
     company: "Inmetrics | Claro Brasil",
     role: "SRE - Middleware - DevOps Engineer",
@@ -57,16 +61,26 @@ const certifications = [
   "Oracle OCI Foundations [1Z0-1085-21] (2021)"
 ];
 
+
 // --- COMPONENTE PRINCIPAL DO PORTFÓLIO ---
 export default function Portfolio() {
+  const [text] = useTypewriter({
+    words: ['SRE', 'DevOps Engineer', 'Cloud Specialist', 'Automation Expert'],
+    loop: true,
+    delaySpeed: 2000,
+  });
+
   return (
     <div>
-      {/* <Navbar />  <-- Desativado por agora */}
+      <Navbar />
 
       {/* --- SEÇÃO INÍCIO --- */}
       <section id="inicio">
         <h1>João Renato Alves</h1>
-        <h2>SRE | DevOps Engineer</h2> {/* <-- Versão simples */}
+        <h2 style={{ minHeight: '60px' }}>
+          <span>{text}</span>
+          <Cursor cursorColor='#0070f3' />
+        </h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
           <a href="https://www.linkedin.com/in/joaorenatoalves" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/jraalves" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -76,43 +90,81 @@ export default function Portfolio() {
       {/* --- SEÇÃO SOBRE --- */}
       <section id="sobre">
         <h2>Sobre Mim</h2>
-        {/* Foto desativada temporariamente para simplificar */}
-        <p>
-          Engenheiro SRE/DevOps com sólida experiência...
-        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '50px' }}>
+          <img 
+            src="/profile.jpg" 
+            alt="Foto de João Renato Alves" 
+            style={{ width: '250px', height: '250px', borderRadius: '50%', objectFit: 'cover' }}
+          />
+          <div>
+            <p>
+              Engenheiro SRE/DevOps com experiência em arquitetura de soluções, automação de infraestrutura e observabilidade.
+              Possuo conhecimento em distribuições Linux (RedHat, Ubuntu, CentOS ), Docker, Kubernetes e ferramentas de CI/CD como Jenkins e GitLab CI.
+              Sou proativo na resolução de problemas e colaborativo, com excelente comunicação para interagir com stakeholders técnicos e não técnicos.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* --- SEÇÃO HABILIDADES --- */}
       <section id="habilidades">
         <h2>Habilidades Técnicas</h2>
-        {/* Versão simples com lista de texto */}
-        <ul>
-          <li>Cloud: AWS, Azure, OCI</li>
-          <li>Contêineres: Docker, Kubernetes</li>
-          <li>CI/CD: Jenkins, GitLab CI</li>
-        </ul>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', fontSize: '4rem' }}>
+          <div style={{ textAlign: 'center' }}><FaAws title="AWS" /></div>
+          <div style={{ textAlign: 'center' }}><SiMicrosoftazure title="Azure" /></div>
+          <div style={{ textAlign: 'center' }}><FaDocker title="Docker" /></div>
+          <div style={{ textAlign: 'center' }}><SiKubernetes title="Kubernetes" /></div>
+          <div style={{ textAlign: 'center' }}><FaJenkins title="Jenkins" /></div>
+          <div style={{ textAlign: 'center' }}><SiGitlab title="GitLab CI" /></div>
+          <div style={{ textAlign: 'center' }}><SiTerraform title="Terraform" /></div>
+          <div style={{ textAlign: 'center' }}><SiAnsible title="Ansible" /></div>
+          <div style={{ textAlign: 'center' }}><SiGrafana title="Grafana" /></div>
+          <div style={{ textAlign: 'center' }}><SiPrometheus title="Prometheus" /></div>
+          <div style={{ textAlign: 'center' }}><SiZabbix title="Zabbix" /></div>
+          <div style={{ textAlign: 'center' }}><FaLinux title="Linux" /></div>
+          <div style={{ textAlign: 'center' }}><FaWindows title="Windows" /></div>
+        </div>
       </section>
 
-      {/* O resto das seções (Experiência, Certificações, Contato, Footer ) continua igual */}
+      {/* --- SEÇÃO EXPERIÊNCIA --- */}
       <section id="experiencia">
         <h2>Experiência Profissional</h2>
         {experiences.map((exp, index) => (
           <div key={index} style={{ marginBottom: '25px' }}>
             <h3>{exp.role}</h3>
-            <p style={{ color: '#bbb', fontStyle: 'italic', margin: '0' }}>{exp.company} | {exp.period}</p>
+            <p style={{ color: '#bbb', fontStyle: 'italic', margin: '0' }}>
+              {exp.company} | {exp.period}
+            </p>
             <p style={{ marginTop: '5px' }}>{exp.description}</p>
           </div>
         ))}
       </section>
+
+      {/* --- SEÇÃO CERTIFICAÇÕES --- */}
       <section id="certificacoes">
         <h2>Cursos e Certificações</h2>
-        <ul>{certifications.map((cert, index) => (<li key={index}>{cert}</li>))}</ul>
+        <ul>
+          {certifications.map((cert, index) => (
+            <li key={index}>{cert}</li>
+          ))}
+        </ul>
       </section>
+
+      {/* --- SEÇÃO CONTATO --- */}
       <section id="contato">
         <h2>Contato</h2>
-        <p>Email: jotatoxxi@gmail.com</p>
+        <p>Sinta-se à vontade para entrar em contato.</p>
+        <p>Email: joao_renato3@hotmail.com | jotatoxxi@gmail.com</p>
+        
       </section>
-      <footer style={{ textAlign: 'center', padding: '20px' }}><p>Desenvolvido por João Renato Alves.</p></footer>
+
+      {/* --- RODAPÉ --- */}
+      <footer style={{ textAlign: 'center', padding: '20px', borderTop: '1px solid #333', fontSize: '0.9rem' }}>
+        <p>Desenvolvido por João Renato Alves.</p>
+        <a href="https://portfolio-joaorenatoalves.vercel.app/" target="_blank" rel="noopener noreferrer">
+          portfolio-joaorenatoalves.vercel.app
+        </a>
+      </footer>
     </div>
-  );
+   );
 }
