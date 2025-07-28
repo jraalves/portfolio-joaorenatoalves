@@ -1,13 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Ficheiro: styles/globals.css */
 
+/* Reset básico e cor de fundo para o tema escuro */
 body {
-  @apply bg-white text-gray-900;
-  font-family: 'Inter', sans-serif;
-}/* Estilo para o link ativo do menu de navegação */
+  background-color: #121212; /* Fundo escuro */
+  color: #e0e0e0; /* Texto claro */
+  font-family: 'Inter', sans-serif; /* Uma fonte moderna e limpa */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para o link ativo do menu de navegação */
 .active {
-  color: #0070f3 !important;
+  color: #0070f3 !important; /* Cor de destaque azul */
   border-bottom: 2px solid #0070f3;
   padding-bottom: 5px;
 }
